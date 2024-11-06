@@ -13,21 +13,6 @@ Advanced board evaluation metrics considering:
 Smart move prioritization to maximize Alpha-Beta pruning efficiency
 ### Performance Tuning:
 Depth-adjusted search based on runtime profiling
-### Project Structure
-Copysrc/pas/chess/
-├── agents/
-│   ├── MinimaxAgent.java     # Base Minimax implementation
-│   └── AlphaBetaAgent.java   # Alpha-Beta pruning implementation
-├── heuristics/
-│   ├── DefaultHeuristics.java
-│   └── CustomHeuristics.java
-├── moveorder/
-│   ├── DefaultMoveOrderer.java
-│   └── CustomMoveOrderer.java
-├── instrumentation/
-│   └── MinimaxAgent.java     # Performance profiling
-└── debug/
-    └── MinimaxReflectionAgent.java  # Validation testing
 ### Setup
 Copy required files to your project directory:
 chess.jar to lib/chess.jar
@@ -59,4 +44,3 @@ Sepia game engine (included in chess.jar)
 ### Contributors
 Rashfiqur Rahman and Zuizz Saeed
 
-[Your Name]
