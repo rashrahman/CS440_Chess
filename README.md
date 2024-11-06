@@ -1,6 +1,6 @@
 # Chess AI Bot with Alpha-Beta Pruning
 An intelligent chess agent implementation using the Minimax algorithm with Alpha-Beta pruning, custom heuristics, and move ordering optimizations. Built using the Sepia game engine in Java.
-Features
+## Features
 ### Alpha-Beta Pruning: 
 Efficient implementation of the Minimax algorithm with Alpha-Beta pruning for optimal move selection
 ### Custom Heuristics: 
