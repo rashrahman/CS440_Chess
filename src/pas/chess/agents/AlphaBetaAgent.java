@@ -79,8 +79,8 @@ public class AlphaBetaAgent
 				node.setMaxPlayerUtilityValue(CustomHeuristics.getMaxPlayerHeuristicValue(node));
 				bestChild = node;
 			} else {
-				List<DFSTreeNode> children = node.getChildren();
-				double bestUtilityValue;
+				List<DFSTreeNode> children = CustomMoveOrderer.order(node.getChildren());
+        		double bestUtilityValue;
 
 				if (node.getType() == DFSTreeNodeType.MAX) {
 					bestUtilityValue = Double.NEGATIVE_INFINITY;
