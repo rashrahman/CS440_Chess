@@ -4,6 +4,7 @@ package src.pas.chess.moveorder;
 // SYSTEM IMPORTS
 import edu.bu.chess.search.DFSTreeNode;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -23,8 +24,40 @@ public class CustomMoveOrderer
 	 */
 	public static List<DFSTreeNode> order(List<DFSTreeNode> nodes)
 	{
-		// please replace this!
-		return DefaultMoveOrderer.order(nodes);
+		List<DFSTreeNode> captureNodes = new LinkedList<>();
+        List<DFSTreeNode> promotionNodes = new LinkedList<>();
+        List<DFSTreeNode> castlingNodes = new LinkedList<>();
+        List<DFSTreeNode> otherNodes = new LinkedList<>();
+
+        for (DFSTreeNode node : nodes) {
+            if (node.getMove() != null) {
+                switch (node.getMove().getType()) {
+                    case CAPTUREMOVE:
+                        captureNodes.add(node);
+                        break;
+                    case PROMOTEPAWNMOVE:
+                        promotionNodes.add(node);
+                        break;
+                    case CASTLEMOVE:
+                        castlingNodes.add(node);
+                        break;
+                    default:
+                        otherNodes.add(node);
+                        break;
+                }
+            } else {
+                otherNodes.add(node);
+            }
+        }
+
+        // Combine in the order: captures first, then promotions, castling, then other moves
+        List<DFSTreeNode> orderedNodes = new LinkedList<>();
+        orderedNodes.addAll(captureNodes);
+        orderedNodes.addAll(promotionNodes);
+        orderedNodes.addAll(castlingNodes);
+        orderedNodes.addAll(otherNodes);
+
+        return orderedNodes;
 	}
 
 }
